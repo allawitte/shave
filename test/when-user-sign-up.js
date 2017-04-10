@@ -20,6 +20,17 @@ suite('When user sign up', function () {
             assert.equal(result, 'success');
         });
     });
+
+    suite(' with invalid email and password', function () {
+        test(' -returns error', function () {
+            let userCredentials = {
+                email: 'test@test',
+                password: '12'
+            };
+            let result = server.post('/register/', userCredentials);
+            assert.equal(result, 'wrong email or password');
+        })
+    });
 });
 /**
  * Created by HP on 4/9/2017.
