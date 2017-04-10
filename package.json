@@ -1,0 +1,28 @@
+{
+  "name": "netology-xp-diplom",
+  "version": "1.0.0",
+  "description": "XP. Diplom. Shave Shop",
+  "scripts": {
+    "test": "mocha --ui tdd -R spec test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allawitte/shave.git"
+  },
+  "keywords": [
+    "XP",
+    "unit-testing",
+    "value-testing",
+    "state-testing",
+    "interaction-testing",
+    "js"
+  ],
+  "author": "Alla",
+  "devDependencies": {
+    "mocha": "~2.4.5",
+    "chai": "~3.5.0",
+    "chai-http": "~2.0.1",
+    "chai-string": "~1.2.0",
+    "sinon": "latest"
+  }
+}
