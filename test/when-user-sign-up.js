@@ -14,7 +14,7 @@ suite('When user sign up', function () {
         test(' - returns success', function () {
             let userCredentials = {
                 email: 'test@test.com',
-                password: '123456'
+                password: '12ab!*'
             };
             let result = server.post('/register/', userCredentials);
             assert.equal(result, 'success');
