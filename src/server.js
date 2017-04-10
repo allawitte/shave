@@ -1,10 +1,14 @@
 'use strict';
 var app = {};
-app.post = function(route, data){
-    if(Object.keys(data).length == 0){
+app.post = function(route, user){
+    if(isUserEmpty(user)){
         return 'error';
     }
-}
+
+    function isUserEmpty(user){
+        return !Object.keys(user).length;
+    }
+};
 module.exports = app;
 
 /**
