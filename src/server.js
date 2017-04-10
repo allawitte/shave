@@ -4,9 +4,20 @@ app.post = function(route, user){
     if(isUserEmpty(user)){
         return 'error';
     }
-    if('email' in user && 'password' in user){
-        if(user.email != undefined && user.password != undefined){
+    if(isUserDataNotEmpty(user)){
             return 'success';
+    }
+
+    function isEmailAndPasswordInUser(user){
+        return 'email' in user && 'password' in user;
+    }
+
+    function isUserDataNotEmpty(user){
+        if(isEmailAndPasswordInUser(user)){
+            if(user.email != undefined && user.email != '' && user.password != undefined && user.password != ''){
+                return true;
+            }
+
         }
     }
 
