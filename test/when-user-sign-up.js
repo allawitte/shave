@@ -1,11 +1,11 @@
 'use strict';
 var assert = require('chai').assert;
-const server = require('../src/server');
+const validateUser = require('../src/modules/validate-user');
 suite('When user sign up', function () {
     suite(' with empty input', function () {
         test('- returns error', function () {
             let userCredentials = {};
-            let result = server.post('/register/', userCredentials);
+            let result = validateUser(userCredentials);
             assert.equal(result, 'error');
         });
     });
@@ -16,7 +16,7 @@ suite('When user sign up', function () {
                 email: 'test@test.com',
                 password: '12ab!*'
             };
-            let result = server.post('/register/', userCredentials);
+            let result = validateUser(userCredentials);
             assert.equal(result, 'success');
         });
     });
@@ -27,7 +27,7 @@ suite('When user sign up', function () {
                 email: 'test@test',
                 password: '12'
             };
-            let result = server.post('/register/', userCredentials);
+            let result = validateUser(userCredentials);
             assert.equal(result, 'wrong email or password');
         })
     });
