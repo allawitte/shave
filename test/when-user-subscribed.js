@@ -2,6 +2,11 @@
 var assert = require('chai').assert;
 var deliveryToUser = require('../src/modules/delivery-to-user');
 suite('When user is subscribed', function () {
+    function copySubscription(obj){
+        var copy = Object.assign({}, obj);
+        copy.delivery = Array.from(obj.delivery);
+        return copy;
+    }
     suite(' on single shaver', function () {
         test('- delivery record is added', function () {
             let subscription = {
@@ -13,7 +18,8 @@ suite('When user is subscribed', function () {
                 "delivery": [],
                 "__v": 0
             };
-            let result = deliveryToUser(subscription);
+            let copy = copySubscription(subscription);
+            let result = deliveryToUser(copy);
             assert.equal(result.delivery.length, subscription.delivery.length+1);
         });
     });

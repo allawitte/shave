@@ -1,13 +1,10 @@
 'use strict';
 var deliveryToUser = function(subscription){
-    var copy = {};
-    copy.delivery = Array.from(subscription.delivery);
+    subscription.delivery = Array.from(subscription.delivery);
     if(subscription.active){
-        copy.delivery.push(new Date());
+        subscription.delivery.push(new Date());
     }
-    console.log(copy);
-    console.log(subscription);
-    return copy;
+    return subscription;
 };
 module.exports = deliveryToUser;
 /**
