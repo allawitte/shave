@@ -1,5 +1,6 @@
 'use strict';
 var assert = require('chai').assert;
+var deliveryToUser = require('../src/modules/delivery-to-user');
 suite('When user is subscribed', function () {
     suite(' on single shaver', function () {
         test('- delivery record is added', function () {
