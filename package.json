@@ -26,8 +26,16 @@
     "sinon": "latest"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11",
+    "gulp-webserver": "^0.9.1",
+    "mongoose": "^4.9.4",
+    "run-sequence": "^1.2.2",
     "supertest": "^3.0.0"
   }
 }
