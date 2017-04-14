@@ -54,7 +54,7 @@ suite('When few user are subscribed', function () {
                 "delivery": [],
                 "__v": 0
             }];
-        let result = deliveryToUser(subscriptions);
+        let result = delivery(subscriptions);
         assert.equal(result.report.length, subscriptions.length);
     });
 });
