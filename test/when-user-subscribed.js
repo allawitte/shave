@@ -3,11 +3,12 @@ var assert = require('chai').assert;
 var deliveryToUser = require('../src/modules/delivery-to-user');
 var delivery = require('../src/modules/delivery');
 suite('When user is subscribed', function () {
-    function copySubscription(obj){
+    function copySubscription(obj) {
         var copy = Object.assign({}, obj);
         copy.delivery = Array.from(obj.delivery);
         return copy;
     }
+
     suite(' on single shaver', function () {
         test('- delivery record is added', function () {
             let subscription = {
@@ -20,8 +21,9 @@ suite('When user is subscribed', function () {
                 "__v": 0
             };
             let copy = copySubscription(subscription);
-            let result = deliveryToUser(copy);
-            assert.equal(result.delivery.length, subscription.delivery.length+1);
+            let deliveryDateRecordsAfter = deliveryToUser(copy).delivery.length;
+            let deliveryDataRecordBefore = subscription.delivery.length;
+            assert.equal(deliveryDateRecordsAfter, deliveryDataRecordBefore + 1);
         });
     });
 
@@ -37,7 +39,7 @@ suite('When few user are subscribed', function () {
             "delivery": [],
             "__v": 0
         }
-        ,{
+            , {
                 "_id": "58ee6dacee03651b3cf44b4f",
                 "userId": "58ec28357d44c73f2029676f",
                 "articl": "01",
@@ -46,7 +48,7 @@ suite('When few user are subscribed', function () {
                 "delivery": [],
                 "__v": 0
             }
-        ,{
+            , {
                 "_id": "58ee6dacee03651b3cf44b4g",
                 "userId": "58ec28357d44c73f2029676g",
                 "articl": "01",
@@ -55,8 +57,9 @@ suite('When few user are subscribed', function () {
                 "delivery": [],
                 "__v": 0
             }];
-        let result = delivery(subscriptions);
-        assert.equal(result.length, subscriptions.length);
+        let amountOfSubscribedUsers = subscriptions.length
+        let amountOfDeliveryActions = delivery(subscriptions).length;
+        assert.equal(amountOfDeliveryActions, amountOfSubscribedUsers);
     });
 });
 /**
