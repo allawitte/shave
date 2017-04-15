@@ -1,6 +1,7 @@
 'use strict';
 var assert = require('chai').assert;
 var deliveryToUser = require('../src/modules/delivery-to-user');
+var delivery = require('../src/modules/delivery');
 suite('When user is subscribed', function () {
     function copySubscription(obj){
         var copy = Object.assign({}, obj);
@@ -55,7 +56,7 @@ suite('When few user are subscribed', function () {
                 "__v": 0
             }];
         let result = delivery(subscriptions);
-        assert.equal(result.report.length, subscriptions.length);
+        assert.equal(result.length, subscriptions.length);
     });
 });
 /**
