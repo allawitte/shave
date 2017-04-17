@@ -1,17 +1,20 @@
 'use strict';
 var oldDate = Date;
 var assert = require('chai').assert;
+var sinon = require('sinon');
+var checkDeliveryDate = require('../src/modules/check-delivery-date');
+var today = new Date('01/01/1980')
+var clock;
 suite('When company has to ship items', function () {
     beforeEach(function(){
-        Date = function (fake)        {
-            return new oldDate('01/01/1980');
-        }
+        clock = sinon.useFakeTimers(today.getTime());
     });
     afterEach(function(){
         Date = oldDate;
     });
     test('- checks if today is 1-st day of a month', function () {
-        let result = checkDeliveryDate();
+        var today = clock.now;
+        let result = checkDeliveryDate(today);
         assert.equal(result, true);
     });
 });
