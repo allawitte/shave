@@ -39,6 +39,7 @@
     function MainController($scope, authService, $rootScope, $state, $localStorage) {
         var vm = this;
         vm.goTo = goTo;
+        $scope.goToProfile = goToProfile;
         $scope.logOut = logOut;
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             $rootScope.bg = toState.id;
@@ -51,6 +52,10 @@
 
         if ($localStorage.user) {
             $rootScope.isLogged = true;
+        }
+
+        function goToProfile(){
+            $state.go('profile');
         }
 
 

@@ -10,9 +10,19 @@
 
         var service = {};
         service.makeSubscription = makeSubscription;
+        service.getUserSubscriptions = getUserSubscriptions;
+        service.unSubscribe = unSubscribe;
+
+        function unSubscribe(subscriptionId){
+            return $http.put('/subscriptions/' + subscriptionId);
+        }
 
         function makeSubscription(data){
             return $http.post('/subscribe/', data);
+        }
+        
+        function getUserSubscriptions(userId) {
+            return $http.get('/subscriptions/'+userId);
         }
 
         return service;

@@ -25,6 +25,13 @@
                 controllerAs: 'vm',
                 id: "login"
             })
+            .state('profile', {
+                url: '/profile',
+                controller: 'profileController',
+                templateUrl: 'app/pages/profile/profile.html',
+                controllerAs: 'vm',
+                id: "profile"
+            })
             .state('register', {
                 url: '/register',
                 controller: 'registerController',
